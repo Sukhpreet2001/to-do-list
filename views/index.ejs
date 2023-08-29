@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="/style.css"> <!-- Link to your style.css file -->
+</head>
+<body>
+    <h1>Todo List</h1>
+    <!-- Inside your index.ejs template -->
+<ul id="todoList">
+    <% data.forEach(todo => { %>
+        <li>
+            <%= todo.todoTask %>
+            <form action="/delete" method="post">
+                <input type="hidden" name="todoId" value="<%= todo.todoId %>">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    <% }); %>
+</ul>
+<form id="addTodoForm" action="/" method="post">
+    <input type="text" id="todoTask" name="todoTask" placeholder="New Todo" required>
+    <button type="submit">Add Todo</button>
+</form>
+<script src="/script.js"></script>
+ <!-- Link to your script.js file -->
+</body>
+</html>
