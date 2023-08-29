@@ -2,6 +2,8 @@ const express = require("express");
  
 const app = express();
  
+app.use(express.static("public"));
+ 
 app.set("view engine", "ejs");
  
 const todos = [{
@@ -56,3 +58,4 @@ app.post("/delete", (req, res) => {
 app.listen(3000, (req, res) => {
     console.log("App is running on port 3000");
 });
+
